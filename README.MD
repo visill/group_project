@@ -1,5 +1,5 @@
 # Django intensive
-![project workflow](https://github.com/visill/group_project/actions/workflows/python-app.yml/badge.svg)
+![project workflow](https://github.com/visill/group_project/actions/workflows/flake8.yml/badge.svg)
 ![project workflow](https://github.com/visill/group_project/actions/workflows/django.yml/badge.svg)
 ## Quickstart
 1. Скачиваем, заходим в папку проекта
