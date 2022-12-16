@@ -13,6 +13,7 @@
         <li class="nav-item {% if view_name == 'museums:museum_list' %}active{% endif %}">
           <a class="nav-link" {% if view_name != 'museums:museum_list' %}href="{% url 'museums:museum_list'%}"{% endif %}>Музеи</a>
         </li>
+      </ul>
     </div>
     {% endwith %}
   </nav>

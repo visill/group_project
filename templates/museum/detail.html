@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card mb-3">
+  <img class="card-img-top" src="{{ museum.image.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ museum.name }}</h5>
+    <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
+    <p class="card-text">Адрес:<br>{{ museum.address }}</p>
+    <p class="card-text">Ссылка на сайт:<br>{{ museum.link }}</p>
+    <button type="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</button>
+  </div>
+</div>
+{% endblock %}

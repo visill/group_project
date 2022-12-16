@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Название</th>
+      <th scope="col">Адрес</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for city, museum in museums.items %}
+    <tr>
+      <td colspan="3"><strong>{{ city }}</strong></td>
+    </tr>
+    {% for museum in museum %}
+      <tr>
+        <td><a href="/museums/{{ museum.slug }}">{{ museum.name }}</a></td>
+        <td>{{ museum.address }}</td>
+      </tr>
+    {% endfor %}
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
