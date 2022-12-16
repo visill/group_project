@@ -5,9 +5,12 @@ from django.utils.safestring import mark_safe
 from django_cleanup.signals import cleanup_pre_delete
 
 
-class WithImage:
+class BaseModelWithImage(models.Model):
+    name = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=100)
+    description = models.TextField()
     image = models.ImageField(upload_to='uploads/%Y/%m')
-    
+
     @property
     def get_img(self):
         return get_thumbnail(self.image, '300x300', crop='center', quality=51)
@@ -29,3 +32,4 @@ class WithImage:
     class Meta:
         verbose_name = 'Галерея'
         verbose_name_plural = 'Галерея'
+        abstract = True

@@ -1,0 +1,18 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'homepage:home' %}"><img width="32px" height="32px" src="{% static 'img/apple-touch-icon.png' %}"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {% with request.resolver_match.view_name as view_name %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item {% if view_name == 'homepage:home' %}active{% endif %}">
+          <a class="nav-link" {% if view_name != 'homepage:home' %}href="{% url 'homepage:home' %}"{% endif %}>Главная</a>
+        </li>
+        <li class="nav-item {% if view_name == 'museums:museum_list' %}active{% endif %}">
+          <a class="nav-link" {% if view_name != 'museums:museum_list' %}href="{% url 'museums:museum_list'%}"{% endif %}>Музеи</a>
+        </li>
+    </div>
+    {% endwith %}
+  </nav>

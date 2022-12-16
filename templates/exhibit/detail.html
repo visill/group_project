@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div style="" class="main">
+    <div>
+    <img src="{{ exhibit.image.url }}"
+    style="margin-bottom: 15px;"></div>
+    <div class="alert alert-primary">Name: {{ exhibit.name }}</div>
+    <div class="alert alert-secondary">About: {{ exhibit.description|safe }}</div>
+    <div class="alert alert-danger">Category: {{ exhibit.museum.name }}</div>
+</div>
+{% endblock %}

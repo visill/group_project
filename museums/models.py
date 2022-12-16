@@ -1,18 +1,7 @@
-from django.db import models
-
-from core.models import WithImage
+from core.models import BaseModelWithImage
 
 
-class Museum(models.Model, WithImage):
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=100)
-    description = models.TextField()
-
-
-class Exhibit(models.Model, WithImage):
-    name = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100)
-
-    museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
-
-    description = models.TextField()
+class Museum(BaseModelWithImage):
+    class Meta:
+        verbose_name = 'Музей'
+        verbose_name_plural = 'Музеи'
