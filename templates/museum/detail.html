@@ -8,7 +8,7 @@
     <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
     <p class="card-text">Адрес:<br>{{ museum.address }}</p>
     <p class="card-text">Ссылка на сайт:<br>{{ museum.link }}</p>
-    <button type="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</button>
+    <a href="../../exhibits/exhibit_list/{{ museum.name }}" role="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</a>
   </div>
 </div>
 {% endblock %}

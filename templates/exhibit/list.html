@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for exhibit in exhibits %}
+  <div class="card mb-3">
+    <img class="card-img-top" src="{{ exhibit.image.url }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><a href="../../exhibits/{{ exhibit.slug }}">{{ exhibit.name }}</a></h5>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}

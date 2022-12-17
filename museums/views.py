@@ -5,7 +5,6 @@ from .models import Museum
 
 
 class MuseumDetailView(TemplateView):
-    model = Museum
     template_name = 'museum/detail.html'
 
     def get(self, request, *args, **kwargs):
@@ -16,7 +15,6 @@ class MuseumDetailView(TemplateView):
 
 
 class MuseumListView(TemplateView):
-    model = Museum
     template_name = 'museum/list.html'
 
     def get(self, request, *args, **kwargs):
