@@ -10,7 +10,7 @@ urlpatterns = [
         name='exhibit_detail'
     ),
     path(
-        'exhibit_list/<museum_name>', ExhibitsListView.as_view(),
+        'exhibit_list/<museum_slug>', ExhibitsListView.as_view(),
         name='exhibit_list'
     ),
 ]

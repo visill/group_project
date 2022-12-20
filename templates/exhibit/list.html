@@ -2,11 +2,11 @@
 
 {% block content %}
 {% for exhibit in exhibits %}
-  <div class="card mb-3">
-    <img class="card-img-top" src="{{ exhibit.image.url }}" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title"><a href="../../exhibits/{{ exhibit.slug }}">{{ exhibit.name }}</a></h5>
-    </div>
-  </div>
+  {% include 'includes/exhibit_card.html' %}
+  {% if forloop.counter0 > 0 and forloop.counter0|divisibleby:"4" %}
+  <div style="margin:650px;"> <hr></div>
+  {% endif %}
+{% empty %}
+Пожалуй, этот музей сейчас без экспонатов. Загляните в другое время!)
 {% endfor %}
 {% endblock %}

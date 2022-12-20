@@ -9,6 +9,7 @@ class AdminExhibit(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
+        'slug',
         'museum',
         'image_tmb',
         )
@@ -19,5 +20,6 @@ class AdminMuseum(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
+        'slug',
         'image_tmb',
         )

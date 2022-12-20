@@ -8,9 +8,12 @@ class MuseumDetailView(TemplateView):
     template_name = 'museum/detail.html'
 
     def get(self, request, *args, **kwargs):
-        museum = get_object_or_404(Museum, slug=kwargs['slug'])
-
-        context = {"museum": museum}
+        museum = get_object_or_404(
+            Museum, slug=kwargs['slug']
+        )
+        context = {
+            'museum': museum
+        }
         return self.render_to_response(context)
 
 
@@ -24,5 +27,7 @@ class MuseumListView(TemplateView):
             if i.city not in list(city_museum.keys()):
                 city_museum[i.city] = []
             city_museum[i.city].append(i)
-        context = {"museums": city_museum}
+        context = {
+            'museums': city_museum
+        }
         return self.render_to_response(context)
