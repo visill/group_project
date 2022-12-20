@@ -1,9 +1,5 @@
-from django.http import HttpResponse
+from django.views.generic.base import TemplateView
 
 
-class HomePageView():
-    template_name = ''
-
-
-def todo(request):
-    return HttpResponse('todo')
+class HomePageView(TemplateView):
+    template_name = 'homepage/mainpage.html'
