@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-3">
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+    {% for field in form %}
+    <div class="row g-3 align-items-center">
+            <div class="col-sm-2">
+                {{ field.label_tag }}
+            </div>
+            <div class="col-sm-10">
+                {{ field }}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+</div>
+{% include "includes/homepage_greeting.html" %}
+
+{% endblock %}
