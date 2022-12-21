@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from exhibits.models import Exhibit
-from museums.models import Museum  # , City
+from museums.models import Museum, City
 
 
 @admin.register(Exhibit)
@@ -23,8 +23,8 @@ class AdminMuseum(admin.ModelAdmin):
         )
 
 
-# @admin.register(City)
-# class AdminCity(admin.ModelAdmin):
-#     list_display = (
-#         'name',
-#         )
+@admin.register(City)
+class AdminCity(admin.ModelAdmin):
+    list_display = (
+        'name',
+        )

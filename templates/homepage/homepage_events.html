@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for i in events %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ i.title }}</h5>
+        <a href="{{ i.link }}" class="btn btn-primary">Перейти к новости</a>
+        <p class="card-text"><small class="text-muted">Дата публикации: {{ i.date }}</small></p>
+      </div>
+    </div>
+{% endfor %}
+{% include "homepage/homepage_greetings.html" %}
+
+{% endblock %}

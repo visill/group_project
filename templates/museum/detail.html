@@ -8,7 +8,7 @@
     <h5 class="card-title">{{ museum.name }}</h5>
     <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
     <p class="card-text">Адрес:<br>{{ museum.address }}</p>
-    <p class="card-text">Ссылка на сайт:<br>{{ museum.link }}</p>
+    <p class="card-text">Ссылка на сайт:<br><a href="{{ museum.link }}">{{ museum.link }}</a></p>
     <a href="{% url 'exhibits:exhibit_list' museum.slug %}" role="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</a>
   </div>
 </div>

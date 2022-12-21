@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import HPEvent
+
+
+@admin.register(HPEvent)
+class AdminCity(admin.ModelAdmin):
+    list_display = (
+        'title',
+        'date',
+        )
