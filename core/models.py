@@ -33,3 +33,13 @@ class BaseModelWithImage(models.Model):
         verbose_name = 'Галерея'
         verbose_name_plural = 'Галерея'
         abstract = True
+
+
+class BaseEventModel(models.Model):
+    title = models.CharField(max_length=150)
+    link = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name = 'Событие'
+        verbose_name_plural = 'События'
+        abstract = True
