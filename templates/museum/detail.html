@@ -1,15 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card mb-3" style="width:300px; height:300px;">
-  <img class="card-img-top" width="300" height="300"
-  src="{{ museum.image.url }}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ museum.name }}</h5>
-    <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
-    <p class="card-text">Адрес:<br>{{ museum.address }}</p>
-    <p class="card-text">Ссылка на сайт:<br><a href="{{ museum.link }}">{{ museum.link }}</a></p>
-    <a href="{% url 'exhibits:exhibit_list' museum.slug %}" role="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</a>
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-3">
+      <img class="img-fluid rounded-start" width="300" height="300" src="{{ museum.image.url }}" alt="Card image cap">
+    </div>
+    <div class="col-md-9">
+      <div class="card-body">
+        <h5 class="card-title">{{ museum.name }}</h5>
+        <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
+        <p class="card-text">Адрес:<br>{{ museum.address }}</p>
+        <p class="card-text">Ссылка на сайт:<br><a href="{{ museum.link }}">{{ museum.link }}</a></p>
+        <a href="{% url 'exhibits:exhibit_list' museum.slug %}" role="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</a>
+      </div>
+    </div>
   </div>
+  <div>
+    <hr>
+<h2>Новости музея:</h2>
+{% for i in events %}
+   <br>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ i.title }}</h5>
+      <a href="{{ i.link }}" class="btn btn-primary">Перейти к новости</a>
+      <p class="card-text"><small class="text-muted">Дата публикации: {{ i.date }}</small></p>
+    </div>
+  </div>
+
+{% endfor %}</div>
 </div>
 {% endblock %}

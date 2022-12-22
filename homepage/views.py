@@ -1,14 +1,14 @@
 from django.views.generic import FormView, TemplateView
 from .forms import CityChoiceForm
 
-from .models import HPEvent
+from museums.models import MuseumEvent
 
 
 class HPEventsView(TemplateView):
     template_name = 'homepage/homepage_events.html'
 
     def get(self, request, *args, **kwargs):
-        events = HPEvent.objects.filter(city__slug=kwargs['city_slug'])[:5]
+        events = MuseumEvent.objects.filter(museum__city__slug=kwargs['city_slug']).order_by('-date')[:5]
         context = {
             'events': events
         }

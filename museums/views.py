@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
 
-from .models import Museum
+from .models import Museum, MuseumEvent
 
 
 class MuseumDetailView(TemplateView):
@@ -11,8 +11,10 @@ class MuseumDetailView(TemplateView):
         museum = get_object_or_404(
             Museum, slug=kwargs['slug']
         )
+        events = MuseumEvent.objects.filter(museum=museum).order_by('date')
         context = {
-            'museum': museum
+            'museum': museum,
+            'events': events
         }
         return self.render_to_response(context)
 
