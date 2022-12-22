@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
+<h2>Новости горда {{ events.0.city.name }}:</h2>
 {% for i in events %}
+<br>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">{{ i.title }}</h5>
