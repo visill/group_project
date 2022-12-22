@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "museums.apps.MuseumsConfig",
     "homepage.apps.HomepageConfig",
     "exhibits.apps.ExhibitsConfig",
+    "events.apps.EventsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
