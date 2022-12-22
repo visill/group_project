@@ -37,7 +37,7 @@ class BaseModelWithImage(models.Model):
 
 class BaseEventModel(models.Model):
     title = models.CharField(max_length=150)
-    link = models.TextField(blank=True)
+    slug = models.SlugField(max_length=100)
 
     class Meta:
         verbose_name = 'Событие'

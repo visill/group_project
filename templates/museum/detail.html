@@ -19,15 +19,9 @@
   <div>
     <hr>
 <h2>Новости музея:</h2>
-{% for i in events %}
+{% for event in events %}
    <br>
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">{{ i.title }}</h5>
-      <a href="{{ i.link }}" class="btn btn-primary">Перейти к новости</a>
-      <p class="card-text"><small class="text-muted">Дата публикации: {{ i.date }}</small></p>
-    </div>
-  </div>
+  {% include 'includes/event_card.html' %}
 
 {% endfor %}</div>
 </div>

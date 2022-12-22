@@ -1,5 +1,6 @@
-from core.models import BaseModelWithImage, BaseEventModel
 from django.db import models
+
+from core.models import BaseModelWithImage
 
 
 class City(models.Model):
@@ -25,8 +26,3 @@ class Museum(BaseModelWithImage):
     class Meta:
         verbose_name = 'Музей'
         verbose_name_plural = 'Музеи'
-
-
-class MuseumEvent(BaseEventModel):
-    museum = models.ForeignKey(Museum, on_delete=models.CASCADE)
-    date = models.DateField()

@@ -1,7 +1,9 @@
 from django.contrib import admin
 
+from events.models import MuseumEvent
 from exhibits.models import Exhibit
-from museums.models import Museum, City, MuseumEvent
+from museums.models import City
+from museums.models import Museum
 
 
 @admin.register(Exhibit)
@@ -9,6 +11,7 @@ class AdminExhibit(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
+        'slug',
         'museum',
         'image_tmb',
         )
@@ -19,6 +22,7 @@ class AdminMuseum(admin.ModelAdmin):
     list_display = (
         'id',
         'name',
+        'slug',
         'image_tmb',
         )
 
@@ -27,6 +31,7 @@ class AdminMuseum(admin.ModelAdmin):
 class AdminCity(admin.ModelAdmin):
     list_display = (
         'name',
+        'slug',
         )
 
 
@@ -34,5 +39,6 @@ class AdminCity(admin.ModelAdmin):
 class AdminMuseumEvent(admin.ModelAdmin):
     list_display = (
         'title',
+        'slug',
         'date',
         )
