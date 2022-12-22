@@ -6,11 +6,11 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('homepage', '0002_alter_hpevent_city'),
+        ("homepage", "0002_alter_hpevent_city"),
     ]
 
     operations = [
         migrations.DeleteModel(
-            name='HPEvent',
+            name="HPEvent",
         ),
     ]
