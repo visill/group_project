@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('museums', '0002_delete_exhibit'),
+        ("museums", "0002_delete_exhibit"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='museum',
-            name='address',
+            model_name="museum",
+            name="address",
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='museum',
-            name='city',
+            model_name="museum",
+            name="city",
             field=models.CharField(blank=True, max_length=168),
         ),
     ]

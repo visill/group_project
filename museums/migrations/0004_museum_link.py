@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('museums', '0003_auto_20221216_2130'),
+        ("museums", "0003_auto_20221216_2130"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='museum',
-            name='link',
-            field=models.TextField(default='У данного музея нет собственного сайта'),
+            model_name="museum",
+            name="link",
+            field=models.TextField(default="У данного музея нет собственного сайта"),
         ),
     ]

@@ -1,5 +1,6 @@
-from core.models import BaseModelWithImage, BaseEventModel
 from django.db import models
+
+from core.models import BaseEventModel, BaseModelWithImage
 
 
 class City(models.Model):
@@ -10,21 +11,21 @@ class City(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Город'
-        verbose_name_plural = 'Города'
+        verbose_name = "Город"
+        verbose_name_plural = "Города"
 
 
 class Museum(BaseModelWithImage):
     address = models.TextField(blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
-    link = models.TextField(default='У данного музея нет собственного сайта')
+    link = models.TextField(default="У данного музея нет собственного сайта")
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = 'Музей'
-        verbose_name_plural = 'Музеи'
+        verbose_name = "Музей"
+        verbose_name_plural = "Музеи"
 
 
 class MuseumEvent(BaseEventModel):

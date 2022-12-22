@@ -7,23 +7,30 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='HPEvent',
+            name="HPEvent",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=150)),
-                ('link', models.TextField(blank=True)),
-                ('city', models.CharField(max_length=168)),
-                ('date', models.DateField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=150)),
+                ("link", models.TextField(blank=True)),
+                ("city", models.CharField(max_length=168)),
+                ("date", models.DateField()),
             ],
             options={
-                'verbose_name': 'Событие',
-                'verbose_name_plural': 'События',
-                'abstract': False,
+                "verbose_name": "Событие",
+                "verbose_name_plural": "События",
+                "abstract": False,
             },
         ),
     ]
