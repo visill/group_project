@@ -1,10 +1,9 @@
-from django.views.generic import FormView, TemplateView
-from homepage.forms import CityChoiceForm
+from django.views.generic import TemplateView
+from django.views.generic import FormView
 
+from homepage.forms import CityChoiceForm
 from events.models import MuseumEvent
 from museums.models import City
-
-from .forms import CityChoiceForm
 
 
 class HPEventsView(TemplateView):
