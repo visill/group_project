@@ -1,8 +1,7 @@
-from django.views.generic import TemplateView
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 
-from homepage.forms import CityChoiceForm
 from events.models import MuseumEvent
+from homepage.forms import CityChoiceForm
 from museums.models import City
 
 
@@ -11,12 +10,12 @@ class HPEventsView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         events = MuseumEvent.objects.filter(
-            museum__city__slug=kwargs['city_slug']
-        ).order_by('-date')[:5]
-        city = City.objects.get(slug=kwargs['city_slug'])
+            museum__city__slug=kwargs["city_slug"]
+        ).order_by("-date")[:5]
+        city = City.objects.get(slug=kwargs["city_slug"])
         context = {
-            'events': events,
-            'city': city,
+            "events": events,
+            "city": city,
         }
         return self.render_to_response(context)
 

@@ -24,5 +24,5 @@ class Museum(BaseModelWithImage):
         return self.name
 
     class Meta:
-        verbose_name = 'Музей'
-        verbose_name_plural = 'Музеи'
+        verbose_name = "Музей"
+        verbose_name_plural = "Музеи"

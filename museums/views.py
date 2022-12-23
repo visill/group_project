@@ -1,8 +1,8 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView
 
-from museums.models import Museum
 from events.models import MuseumEvent
+from museums.models import Museum
 
 
 class MuseumDetailView(TemplateView):
