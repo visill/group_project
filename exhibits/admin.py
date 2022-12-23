@@ -1,3 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Exhibit
+
+
+@admin.register(Exhibit)
+class AdminExhibit(admin.ModelAdmin):
+    list_display = (
+        "id",
+        "name",
+        "slug",
+        "museum",
+        "image_tmb",
+    )

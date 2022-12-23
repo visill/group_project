@@ -9,6 +9,9 @@ class Exhibit(BaseModelWithImage):
         Museum, on_delete=models.CASCADE, related_name="exhibits"
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = "Экспонат"
         verbose_name_plural = "Экспонаты"

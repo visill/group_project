@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import MuseumEvent
+
+
+@admin.register(MuseumEvent)
+class AdminMuseumEvent(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "slug",
+        "date",
+    )
