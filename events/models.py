@@ -6,10 +6,11 @@ from museums.models import Museum
 
 class MuseumEvent(BaseEventModel):
     museum = models.ForeignKey(
-        Museum, on_delete=models.CASCADE, related_name="events"
+        Museum, on_delete=models.CASCADE, related_name="events",
+        verbose_name="музей, в котором происходит это событие"
     )
-    date = models.DateField()
-    description = models.TextField()
+    date = models.DateField("дата события")
+    description = models.TextField("описание события")
 
     class Meta:
         verbose_name = "событие"

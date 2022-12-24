@@ -6,7 +6,8 @@ from museums.models import Museum
 
 class Exhibit(BaseModelWithImage):
     museum = models.ForeignKey(
-        Museum, on_delete=models.CASCADE, related_name="exhibits"
+        Museum, on_delete=models.CASCADE, related_name="exhibits",
+        verbose_name="музей, к которому принадлежит этот экспонат"
     )
 
     class Meta:
