@@ -1,9 +1,8 @@
-import os
-from pathlib import Path
-
 import environ
-from django_cleanup.signals import cleanup_pre_delete
+
+from pathlib import Path
 from sorl.thumbnail import delete
+from django_cleanup.signals import cleanup_pre_delete
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +12,7 @@ env = environ.Env(
     EMAIL=(str, "example@example.com"),
 )
 # reading .env file
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"), overwrite=True)
+environ.Env.read_env(BASE_DIR / ".env", overwrite=True)
 
 SECRET_KEY = env("SECRET_KEY")
 
@@ -26,18 +25,20 @@ INTERNAL_IPS = [
 ]
 
 INSTALLED_APPS = [
-    "museums.apps.MuseumsConfig",
-    "homepage.apps.HomepageConfig",
-    "exhibits.apps.ExhibitsConfig",
-    "events.apps.EventsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
+
+    "museums.apps.MuseumsConfig",
+    "homepage.apps.HomepageConfig",
+    "exhibits.apps.ExhibitsConfig",
+    "events.apps.EventsConfig",
 ]
 
 MIDDLEWARE = [
@@ -52,10 +53,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "group_project.urls"
 
+TEMPLATE_DIRS = [
+    BASE_DIR / "templates"
+]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": TEMPLATE_DIRS,
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -79,26 +83,34 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.\
-UserAttributeSimilarityValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.\
-MinimumLengthValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.\
-CommonPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        "NAME": "django.contrib.auth.password_validation.\
-NumericPasswordValidator",
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
 LANGUAGE_CODE = "ru-RU"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Moscow"
 
 USE_I18N = True
 USE_L10N = True
