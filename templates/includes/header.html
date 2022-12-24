@@ -11,7 +11,16 @@
           <a class="nav-link" {% if view_name != 'homepage:home' %}href="{% url 'homepage:home' %}"{% endif %}>Главная</a>
         </li>
         <li class="nav-item {% if view_name == 'museums:museum_list' %}active{% endif %}">
-          <a class="nav-link" {% if view_name != 'museums:museum_list' %}href="{% url 'museums:museum_list'%}"{% endif %}>Музеи</a>
+          <a class="nav-link" {% if view_name != 'museums:museum_list' %}href="{% url 'museums:museum_list' %}"{% endif %}>Музеи</a>
+        </li>
+        <li class="nav-item {% if view_name == 'exhibits:exhibit_main' %}active{% endif %}">
+          <a class="nav-link" {% if view_name != 'exhibits:exhibit_main' %}href="{% url 'exhibits:exhibit_main' %}"{% endif %}>Экспонаты</a>
+        </li>
+        <li class="nav-item {% if view_name == 'about:about' %}active{% endif %}">
+          <a class="nav-link" {% if view_name != 'about:about' %}href="{% url 'about:about' %}"{% endif %}>Про проект</a>
+        </li>
+        <li class="nav-item {% if view_name == 'about:devinfo' %}active{% endif %}">
+          <a class="nav-link" {% if view_name != 'about:devinfo' %}href="{% url 'about:devinfo'%}"{% endif %}>Про техническую часть</a>
         </li>
       </ul>
     </div>

@@ -2,7 +2,7 @@
 
 {% block content %}
 {% for exhibit in exhibits %}
-  {% include 'includes/exhibit_card.html' %}
+  {% include 'exhibit/exhibit_card.html' %}
   {% if forloop.counter0 > 0 and forloop.counter0|divisibleby:"4" %}
   <div style="margin:650px;"> <hr></div>
   {% endif %}

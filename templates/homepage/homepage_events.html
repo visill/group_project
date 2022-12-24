@@ -4,8 +4,10 @@
 <h2>Новости города {{ city.name }}:</h2>
 {% for event in events %}
 <br>
-{% include 'includes/event_card.html' %}
+{% include 'events/event_card.html' %}
 {% endfor %}
-{% include "homepage/homepage_greetings.html" %}
+<hr>
+<h3>Здравствуйте, мы рады приветствовать Вас на нашем сайте-агрегаторе музеев.<br>
+    Здесь Вы сможете:<br>Посмотреть на экспонаты музея в онлайн формате<br>Узнать актуальные новости музеев Вашего города<br>Посмотреть новости конкретного музея</h3>
 
 {% endblock %}

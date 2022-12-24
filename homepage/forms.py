@@ -2,7 +2,7 @@ from django import forms
 
 from museums.models import City
 
-from .utils import is_migration
+from homepage.utils import is_migration
 
 
 class CityChoiceForm(forms.Form):

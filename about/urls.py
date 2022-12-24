@@ -1,16 +1,15 @@
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import include
 from django.urls import path
 
+from about.views import DevInfoView
+from about.views import AboutView
+
+app_name = "about"
+
 urlpatterns = [
-    path("", include("homepage.urls")),
-    path("about/", include("about.urls")),
-    path("exhibits/", include("exhibits.urls")),
-    path("museums/", include("museums.urls")),
-    path("events/", include("events.urls")),
-    path("admin/", admin.site.urls),
+    path("", AboutView.as_view(), name="about"),
+    path("devinfo", DevInfoView.as_view(), name="devinfo"),
 ]
 
 if settings.DEBUG:

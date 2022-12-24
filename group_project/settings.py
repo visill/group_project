@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "exhibits.apps.ExhibitsConfig",
     "events.apps.EventsConfig",
+    "about.apps.AboutConfig",
 ]
 
 MIDDLEWARE = [
