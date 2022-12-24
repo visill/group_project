@@ -1,6 +1,11 @@
 ### vscode ###
-.vscode
+.vscode/
 
+### PyCharm ##
+.idea/
+
+### MacOS ##
+.DS_Store
 
 ### Django ###
 *.log
@@ -9,8 +14,8 @@
 __pycache__/
 local_settings.py
 
-media/cache
-static
+media/
+static/
 .env
-venv
+venv/
 db.sqlite3
