@@ -4,7 +4,7 @@ from django.views.generic import DetailView
 from django.views.generic import TemplateView
 
 from exhibits.models import Exhibit
-from about.forms import MuseumChoiceForm
+from exhibits.forms import MuseumChoiceForm
 
 
 class ExhibitsMainView(FormView):
