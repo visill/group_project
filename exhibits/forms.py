@@ -1,10 +1,13 @@
 from django import forms
 
 from museums.models import Museum
+from homepage.utils import is_migration
 
 
 class MuseumChoiceForm(forms.Form):
-    museums = [(i.slug, i.name) for i in Museum.objects.all()]
+    museums = []
+    if not is_migration():
+        museums = [(i.slug, i.name) for i in Museum.objects.all()]
 
     museum = forms.ChoiceField(
         choices=museums,
