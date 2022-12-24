@@ -18,11 +18,11 @@
   </div>
   <div>
     <hr>
-<h2>Новости музея:</h2>
-{% for event in events %}
-   <br>
-  {% include 'events/event_card.html' %}
-
-{% endfor %}</div>
+    <h2>Новости музея:</h2>
+    {% for event in events %}
+      <br>
+      {% include 'events/event_card.html' %}
+      {% endfor %}
+    </div>
 </div>
 {% endblock %}
