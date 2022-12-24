@@ -13,5 +13,5 @@ class Exhibit(BaseModelWithImage):
         return self.name
 
     class Meta:
-        verbose_name = "Экспонат"
-        verbose_name_plural = "Экспонаты"
+        verbose_name = "экспонат"
+        verbose_name_plural = "экспонаты"

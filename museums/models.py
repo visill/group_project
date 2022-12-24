@@ -11,18 +11,19 @@ class City(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Город"
-        verbose_name_plural = "Города"
+        verbose_name = "город"
+        verbose_name_plural = "города"
 
 
 class Museum(BaseModelWithImage):
     address = models.TextField(blank=True)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-    link = models.TextField(default="У данного музея нет собственного сайта")
+    city = models.ForeignKey(
+        City, on_delete=models.CASCADE, related_name="museums"
+    )
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = "Музей"
-        verbose_name_plural = "Музеи"
+        verbose_name = "музей"
+        verbose_name_plural = "музеи"

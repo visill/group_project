@@ -28,8 +28,8 @@ class BaseModelWithImage(models.Model):
     cleanup_pre_delete.connect(sorl_delete)
 
     class Meta:
-        verbose_name = "Галерея"
-        verbose_name_plural = "Галерея"
+        verbose_name = "модель с изображением"
+        verbose_name_plural = "модели с изображением"
         abstract = True
 
 
@@ -38,6 +38,6 @@ class BaseEventModel(models.Model):
     slug = models.SlugField(max_length=100)
 
     class Meta:
-        verbose_name = "Событие"
-        verbose_name_plural = "События"
+        verbose_name = "событие"
+        verbose_name_plural = "события"
         abstract = True
