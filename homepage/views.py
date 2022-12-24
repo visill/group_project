@@ -1,4 +1,6 @@
-from django.views.generic import FormView, TemplateView
+from django.urls import reverse
+from django.views.generic import FormView
+from django.views.generic import TemplateView
 
 from events.models import MuseumEvent
 from homepage.forms import CityChoiceForm
@@ -29,4 +31,4 @@ class CityFormHPClass(FormView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return f"/{self.slug}"
+        return reverse('homepage:homepage_events', args=[self.slug])
