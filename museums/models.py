@@ -4,12 +4,8 @@ from core.models import BaseModelWithImage
 
 
 class City(models.Model):
-    name = models.CharField(
-        "название города", max_length=168
-    )
-    slug = models.CharField(
-        "уникальный слаг(путь) города", max_length=150
-    )
+    name = models.CharField("название города", max_length=168)
+    slug = models.CharField("уникальный слаг(путь) города", max_length=150)
 
     class Meta:
         verbose_name = "город"
@@ -20,12 +16,12 @@ class City(models.Model):
 
 
 class Museum(BaseModelWithImage):
-    address = models.TextField(
-        "адрес музея", blank=True
-    )
+    address = models.TextField("адрес музея", blank=True)
     city = models.ForeignKey(
-        City, on_delete=models.CASCADE, related_name="museums",
-        verbose_name="город, в котором расположен текущий музей"
+        City,
+        on_delete=models.CASCADE,
+        related_name="museums",
+        verbose_name="город, в котором расположен текущий музей",
     )
 
     class Meta:

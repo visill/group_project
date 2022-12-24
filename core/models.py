@@ -5,19 +5,10 @@ from sorl.thumbnail import delete, get_thumbnail
 
 
 class BaseModelWithImage(models.Model):
-    name = models.CharField(
-        "название обьекта",
-        max_length=100
-    )
-    slug = models.SlugField(
-        "уникальный слаг(путь) для обьекта", max_length=100
-    )
-    description = models.TextField(
-        "описание обьекта"
-    )
-    image = models.ImageField(
-        "изображение обьекта", upload_to="uploads/%Y/%m"
-    )
+    name = models.CharField("название обьекта", max_length=100)
+    slug = models.SlugField("уникальный слаг(путь) для обьекта", max_length=100)
+    description = models.TextField("описание обьекта")
+    image = models.ImageField("изображение обьекта", upload_to="uploads/%Y/%m")
 
     class Meta:
         verbose_name = "модель с изображением"
@@ -43,12 +34,8 @@ class BaseModelWithImage(models.Model):
 
 
 class BaseEventModel(models.Model):
-    title = models.CharField(
-        "заголовок события", max_length=150
-    )
-    slug = models.SlugField(
-        "уникальный слаг(путь) события", max_length=100
-    )
+    title = models.CharField("заголовок события", max_length=150)
+    slug = models.SlugField("уникальный слаг(путь) события", max_length=100)
 
     class Meta:
         verbose_name = "событие"

@@ -1,8 +1,8 @@
-import environ
-
 from pathlib import Path
-from sorl.thumbnail import delete
+
+import environ
 from django_cleanup.signals import cleanup_pre_delete
+from sorl.thumbnail import delete
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,10 +31,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
-
     "museums.apps.MuseumsConfig",
     "homepage.apps.HomepageConfig",
     "exhibits.apps.ExhibitsConfig",
@@ -53,9 +51,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "group_project.urls"
 
-TEMPLATE_DIRS = [
-    BASE_DIR / "templates"
-]
+TEMPLATE_DIRS = [BASE_DIR / "templates"]
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -89,22 +85,13 @@ AUTH_PASSWORD_VALIDATORS = [
         ),
     },
     {
-        "NAME": (
-            "django.contrib.auth.password_validation."
-            "MinimumLengthValidator"
-        ),
+        "NAME": ("django.contrib.auth.password_validation." "MinimumLengthValidator"),
     },
     {
-        "NAME": (
-            "django.contrib.auth.password_validation."
-            "CommonPasswordValidator"
-        ),
+        "NAME": ("django.contrib.auth.password_validation." "CommonPasswordValidator"),
     },
     {
-        "NAME": (
-            "django.contrib.auth.password_validation."
-            "NumericPasswordValidator"
-        ),
+        "NAME": ("django.contrib.auth.password_validation." "NumericPasswordValidator"),
     },
 ]
 
