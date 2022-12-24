@@ -10,6 +10,11 @@ class BaseModelWithImage(models.Model):
     description = models.TextField()
     image = models.ImageField(upload_to="uploads/%Y/%m")
 
+    class Meta:
+        verbose_name = "модель с изображением"
+        verbose_name_plural = "модели с изображением"
+        abstract = True
+
     @property
     def get_img(self):
         return get_thumbnail(self.image, "300x300", crop="center", quality=51)
@@ -26,11 +31,6 @@ class BaseModelWithImage(models.Model):
         delete(kwargs["file"])
 
     cleanup_pre_delete.connect(sorl_delete)
-
-    class Meta:
-        verbose_name = "модель с изображением"
-        verbose_name_plural = "модели с изображением"
-        abstract = True
 
 
 class BaseEventModel(models.Model):
