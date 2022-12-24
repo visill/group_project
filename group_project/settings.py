@@ -11,7 +11,7 @@ env = environ.Env(
     SECRET_KEY=(str, "django-insecure-had=notsecretkey"),
     EMAIL=(str, "example@example.com"),
 )
-# reading .env file
+
 environ.Env.read_env(BASE_DIR / ".env", overwrite=True)
 
 SECRET_KEY = env("SECRET_KEY")
