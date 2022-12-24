@@ -1,12 +1,14 @@
 from django.db import models
+from sorl.thumbnail import delete
+from sorl.thumbnail import get_thumbnail
 from django.utils.safestring import mark_safe
 from django_cleanup.signals import cleanup_pre_delete
-from sorl.thumbnail import delete, get_thumbnail
 
 
 class BaseModelWithImage(models.Model):
     name = models.CharField("название обьекта", max_length=100)
-    slug = models.SlugField("уникальный слаг(путь) для обьекта", max_length=100)
+    slug = models.SlugField("уникальный слаг(путь) для обьекта",
+                            max_length=100)
     description = models.TextField("описание обьекта")
     image = models.ImageField("изображение обьекта", upload_to="uploads/%Y/%m")
 

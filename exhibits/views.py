@@ -14,6 +14,8 @@ class ExhibitsListView(TemplateView):
 
     def get(self, response, *args, **kwargs):
         context = {
-            "exhibits": (Exhibit.objects.filter(museum__slug=kwargs["museum_slug"]))
+            "exhibits": (
+                Exhibit.objects.filter(museum__slug=kwargs["museum_slug"])
+            )
         }
         return self.render_to_response(context)

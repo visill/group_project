@@ -4,6 +4,14 @@ from core.models import BaseEventModel
 from museums.models import Museum
 
 
+class MuseumEventManager(models.Manager):
+    def get_event_by_city(city_slug):
+        events = MuseumEvent.objects.filter(
+            museum__city__slug=city_slug
+        ).order_by("-date")
+        return events
+
+
 class MuseumEvent(BaseEventModel):
     museum = models.ForeignKey(
         Museum,
@@ -13,6 +21,8 @@ class MuseumEvent(BaseEventModel):
     )
     date = models.DateField("дата события")
     description = models.TextField("описание события")
+
+    objects = MuseumEventManager()
 
     class Meta:
         verbose_name = "событие"
