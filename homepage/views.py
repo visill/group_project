@@ -1,4 +1,5 @@
 from django.urls import reverse
+from django.shortcuts import get_object_or_404
 from django.views.generic import FormView
 from django.views.generic import TemplateView
 
@@ -11,10 +12,8 @@ class HPEventsView(TemplateView):
     template_name = "homepage/homepage_events.html"
 
     def get(self, request, *args, **kwargs):
-        events = MuseumEvent.objects.filter(
-            museum__city__slug=kwargs["city_slug"]
-        ).order_by("-date")[:5]
-        city = City.objects.get(slug=kwargs["city_slug"])
+        city = get_object_or_404(City, slug=kwargs["city_slug"])
+        events = MuseumEvent.objects.get_event_by_city(kwargs["city_slug"])[:5]
         context = {
             "events": events,
             "city": city,

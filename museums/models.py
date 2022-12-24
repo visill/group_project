@@ -3,9 +3,16 @@ from django.db import models
 from core.models import BaseModelWithImage
 
 
+class CityManager(models.Manager):
+    def get_city_by_slug(slug):
+        return City.objects.get(slug=slug)
+
+
 class City(models.Model):
     name = models.CharField("название города", max_length=168)
     slug = models.CharField("уникальный слаг(путь) города", max_length=150)
+
+    objects = CityManager()
 
     class Meta:
         verbose_name = "город"
