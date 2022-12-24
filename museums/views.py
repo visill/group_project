@@ -1,23 +1,21 @@
-from django.views.generic import TemplateView
 from django.shortcuts import get_object_or_404
+from django.views.generic import TemplateView
 
-from .models import Museum
+from museums.models import Museum
 
 
 class MuseumDetailView(TemplateView):
-    model = Museum
-    template_name = 'museum/detail.html'
+    template_name = "museum/detail.html"
 
     def get(self, request, *args, **kwargs):
-        museum = get_object_or_404(Museum, slug=kwargs['slug'])
-
-        context = {"museum": museum}
+        museum = get_object_or_404(Museum, slug=kwargs["slug"])
+        events = museum.events.order_by("date")
+        context = {"museum": museum, "events": events}
         return self.render_to_response(context)
 
 
 class MuseumListView(TemplateView):
-    model = Museum
-    template_name = 'museum/list.html'
+    template_name = "museum/list.html"
 
     def get(self, request, *args, **kwargs):
         city_museum = {}

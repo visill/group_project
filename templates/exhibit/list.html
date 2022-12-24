@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for exhibit in exhibits %}
+  {% include 'exhibit/exhibit_card.html' %}
+  {% if forloop.counter0 > 0 and forloop.counter0|divisibleby:"4" %}
+  <div style="margin:650px;"> <hr></div>
+  {% endif %}
+{% empty %}
+Похоже, этот музей сейчас без экспонатов. Загляните в другое время!)
+{% endfor %}
+{% endblock %}

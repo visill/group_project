@@ -2,13 +2,27 @@
 
 {% block content %}
 <div class="card mb-3">
-  <img class="card-img-top" src="{{ museum.image.url }}" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ museum.name }}</h5>
-    <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
-    <p class="card-text">Адрес:<br>{{ museum.address }}</p>
-    <p class="card-text">Ссылка на сайт:<br>{{ museum.link }}</p>
-    <button type="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</button>
+  <div class="row g-0">
+    <div class="col-md-3">
+      <img class="img-fluid rounded-start" width="300" height="300" src="{{ museum.image.url }}" alt="Card image cap">
+    </div>
+    <div class="col-md-9">
+      <div class="card-body">
+        <h5 class="card-title">{{ museum.name }}</h5>
+        <p class="card-text">Описание:<br>{{ museum.description|safe }}</p>
+        <p class="card-text">Адрес:<br>{{ museum.address }}</p>
+        <p class="card-text">Ссылка на сайт:<br><a href="{{ museum.link }}">{{ museum.link }}</a></p>
+        <a href="{% url 'exhibits:exhibit_list' museum.slug %}" role="button" class="btn btn-outline-primary">Перейти к просмотру экспонатов этого музея</a>
+      </div>
+    </div>
   </div>
+  <div>
+    <hr>
+    <h2>Новости музея:</h2>
+    {% for event in events %}
+      <br>
+      {% include 'events/event_card.html' %}
+      {% endfor %}
+    </div>
 </div>
 {% endblock %}

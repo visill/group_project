@@ -5,17 +5,16 @@
   <thead>
     <tr>
       <th scope="col">Название</th>
+      <th scope="col">Город</th>
       <th scope="col">Адрес</th>
     </tr>
   </thead>
   <tbody>
   {% for city, museum in museums.items %}
-    <tr>
-      <td colspan="3"><strong>{{ city }}</strong></td>
-    </tr>
     {% for museum in museum %}
       <tr>
-        <td><a href="/museums/{{ museum.slug }}">{{ museum.name }}</a></td>
+        <td><a href="{% url 'museums:museum_detail' museum.slug %}">{{ museum.name }}</a></td>
+        <td><strong>{{ city }}</strong></td>
         <td>{{ museum.address }}</td>
       </tr>
     {% endfor %}
